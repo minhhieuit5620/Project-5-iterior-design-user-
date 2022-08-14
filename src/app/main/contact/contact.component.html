@@ -1,0 +1,100 @@
+<section id="subheader" data-speed="8" data-type="background">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Liên hệ</h1>
+                <ul class="crumb">
+                    <li><a href="index-2.html">Trang chủ</a></li>
+                    <li class="sep">/</li>
+                    <li>Liên hệ</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- subheader close -->
+
+<!-- content begin -->
+<div id="content" class="no-top">
+    <section class="no-top">
+        <!-- <div id="map"></div> -->
+    </section>
+    <!-- <agm-map [latitude]="location.latitude" [longitude]="location.longitude" [mapTypeId]="location.mapType"></agm-map> -->
+    <!-- <agm-map [latitude]="lat" [longitude]="lng">
+        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    </agm-map> -->
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-8">
+                <h3>Thông tin của bạn</h3>
+                <!-- method="POST"  (ngSubmit)="onSubmit()"  name="contactForm"action='http://www.themenesia.com/themeforest/archi-light/email.php' -->
+                <form method="POST" [formGroup]="form" (ngSubmit)="form.valid && onSubmit()"  id='contact_form'  role="form"  >
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div id='name_error' class='error'>Please enter your name.</div>
+                            <div>
+                                <input type='text' name='name' formControlName="nameCus" id='name' class="form-control" placeholder="Họ tên">
+                            </div>
+
+                            <div id='email_error' class='error'>Please enter your valid E-mail.</div>
+                            <div>
+                                <input type='text' name='email' id='email' formControlName="email" class="form-control" placeholder="Email">
+                            </div>
+
+                            <div id='phone_error' class='error'>Please enter your phone number.</div>
+                            <div>
+                                <input type='text' name='phone' id='phone' formControlName="phone" class="form-control" placeholder="Điện thoại">
+                            </div>
+                            <div id='date_erro' class='error'>Please choose a date to meet.</div>
+                            <div>
+                                <input formControlName="date" style='border: solid 1px #ddd;background: #f5f5f5; color: #333;margin-bottom: 20px;padding: 10px;' 
+                                
+                               type='date' name='datemeet' id='datemeet' class="form-control" placeholder="CHọn">
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+
+                            <div id='message_error' class='error'>Please enter your message.</div>
+                            <div>
+                                <textarea name='message' formControlName="noiDung" [ngClass]="{'is-invalid':form.get('noiDung')?.touched && form.get('noiDung')?.invalid}" required  style="height:221px" id='message' style="color: black;height: 221px;" class="form-control" placeholder="Nội dung"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <p id='submit'>
+                                <input type='submit'  (click)="onSubmit()" value='Gửi' class="btn btn-line">
+                            </p>
+                            <!-- <div id='mail_success' class='success'>Your message has been sent successfully.</div>
+                            <div id='mail_fail' class='error'>Sorry, error occured this time sending your message.</div> -->
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="sidebar" class="col-md-4">
+
+                <div class="widget widget_text">
+                    <h3>Thông tin liên hệ</h3>
+                    <address>
+                        <span>Số 20, Ngô Quyền, TP Hải Dương </span>
+                        <span><strong>Phone:</strong>0362343226</span>
+                        <span><strong>Fax:</strong>(208) 333 9298</span>
+                        <span><strong>Email:</strong><a href="mailto:minhhieu562k@gmail.com">minhhieu562k@gmail.com</a></span>
+                        <span><strong>Web:</strong><a href="#test">http://example.com</a></span>
+                        <span><strong>Open</strong>Thứ 2 - Thứ 7 08:00 - 18:00</span>
+                    </address>
+                </div>
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>

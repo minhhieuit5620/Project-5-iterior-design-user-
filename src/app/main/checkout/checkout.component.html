@@ -1,0 +1,119 @@
+<section id="subheader" data-speed="8" data-type="background">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12">
+              <h1>Đặt hàng</h1>
+              <ul class="crumb">
+                  <li><a href="index-2.html">Trang chủ</a></li>
+                  <li class="sep">/</li>
+                  <li>Đặt hàng</li>
+              </ul>
+          </div>
+      </div>
+  </div>
+</section>
+<div class="bao">
+  <div class="container">
+      <div class="row">
+          <div class="col-75">
+            <div class="content">
+              <!-- <form method="POST" [formGroup]="form" (ngSubmit)="form.valid && thanhToan()"  id='contact_form'  role="form">           -->
+                <form (ngSubmit)="thanhToan()">
+                <div class="row">
+                  <div class="col-50">                      
+                    <h3 >Thông tin của bạn</h3>
+                    <label for="fname"><i class="fa fa-user"></i> Họ tên: </label>
+                    <input type="text" [(ngModel)]="ship.customerName" [(ngModel)]="datHang.nameCus"  id="fname" name="firstname" placeholder="Nguyễn Văn A">
+                    <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                    <input type="text" [(ngModel)]="ship.customerEmail" id="email" name="email" placeholder="name@gmail.com">
+                    <label for="adr"><i class="fas fa-map-marker-alt"></i> Địa chỉ</label>
+                    <input type="text" id="adr" [(ngModel)]="ship.address"  name="address" placeholder="Khu A, phường Thanh Bình, Tp Hải Dương,Tỉnh Hải Dương">
+                    <label for="city"><i class="fa fa-phone"></i> Điện thoại</label>
+                    <input type="text" [(ngModel)]="ship.customerPhone" id="phone" name="phone" placeholder="0362xxxxxx">
+                    <label for="city"><i class="fa fa-edit"></i> Ghi chú</label>
+                    <input type="text" [(ngModel)]="ship.note"  id="notr" name="note" >
+                      <!--           
+                    <div class="row">
+                      <div class="col-50">
+                        <label for="state">State</label>
+                        <input type="text" id="state" name="state" placeholder="NY">
+                      </div>
+                      <div class="col-50">
+                        <label for="zip">Zip</label>
+                        <input type="text" id="zip" name="zip" placeholder="10001">
+                      </div>
+                    </div> -->
+                  </div>
+        
+                  <div class="col-50">
+                    <h3 style="padding-bottom: 35px;">Hình thức thanh toán</h3>
+                   
+                    <input type="hidden"  [(ngModel)]="ship.payments" value="Thanh toán bằng thẻ">
+                    <select class="a" >
+                      <option  value="------">---------</option>
+                      <option  value="Thanh toán bằng thẻ">Thanh tóa bằng thẻ</option>
+                      <option  value="Thanh toán khi giao hàng">Thanh toán khi giao hàng</option>
+                    </select>
+                
+                    <!-- <label for="fname">Các thẻ có thể thanh toán</label> -->
+                    <div class="icon-container">
+                      <!-- <i class="fab fa-cc-visa"></i> -->
+                      <i class="fab fa-cc-visa" style="color:navy;"></i>
+                      <i class="fab fa-cc-amex" style="color:blue;"></i>
+                      <i class="fab fa-cc-mastercard" style="color:red;"></i>
+                      <i class="fab fa-cc-discover" style="color:orange;"></i>
+                    </div>
+                    <label for="cname">Tên trên thẻ</label>
+                    <input type="text" [(ngModel)]="ship.nameOnCard"  id="cname" name="cardname" placeholder="HUA MINH HIEU">
+                    <label for="ccnum">Số thẻ tín dụng</label>
+                    <input type="number" id="ccnum" [(ngModel)]="ship.cardNumber"  name="cardnumber" placeholder="1111-2222-3333-4444">
+                    <label for="expmonth">Thời gian cấp</label>
+                    <input type="date" id="expmonth" [(ngModel)]="ship.issueDate" name="expmonth" placeholder="September">
+                    <!--           
+                    <div class="row">
+                      <div class="col-50">
+                        <label for="expyear">Exp Year</label>
+                        <input type="text" id="expyear" name="expyear" placeholder="2018">
+                      </div>
+                      <div class="col-50">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" name="cvv" placeholder="352">
+                      </div>
+                    </div> -->
+                  </div>
+        
+                </div>
+                <!-- <label>
+                  <input type="checkbox" checked="checked" name="sameadr"> Giao hàng đến địa chỉ trên
+                </label> -->
+                <input type="submit" value="Thanh toán" class="btn"  >
+                <!-- (click)="thanhToan()" -->
+              </form>
+            </div>
+          </div>
+          <!-- <div class="tooltip">Hãy di chuột qua tôi nào!
+            <span class="tooltiptext">Tooltip text</span>
+          </div> -->
+          <div class="col-25">
+            <div class="content ">
+              <h4>Giỏ hàng
+                <span class="price" style="color:black">
+                  <i class="fa fa-shopping-cart"></i>
+                  <b>{{itemInCart}}</b>
+                </span>
+              </h4>
+              <!-- <div class="tooltip" > -->
+              <p  *ngFor="let item of items;let i=index"><a href="/cart"> Sản phẩm {{i+1}}</a> <span class="price">{{item.money|number :'3.0'}} VNĐ</span></p>
+             
+              <hr>
+              <p>Tổng tiền :<span class="price" style="color:red"><b>{{total |number : '3.0'}} VNĐ</b></span></p>
+            </div>
+          </div>
+        </div>
+
+  </div>
+ 
+  
+</div>
+
+

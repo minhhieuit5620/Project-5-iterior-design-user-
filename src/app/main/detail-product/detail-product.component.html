@@ -1,0 +1,285 @@
+
+   <section id="subheader" data-speed="8" data-type="background">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Chi tiết sản phẩm </h1>
+                <ul class="crumb">
+                    <li><a href="index-2.html">Trang chủ</a></li>
+                    <li class="sep">/</li>
+                    <li>Chi tiết sản phẩm</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="detail">
+
+        
+<div class="carousel-inner" role="listbox">
+    <!-- .item -->
+    <div class="item active">
+        <div class="single-slide-item slide1">
+            <div class="container">
+                <div class="welcome-hero-content">
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <div class="single-welcome-hero">
+                                <div class="welcome-hero-txt" *ngIf="product" ngDefaultControl>
+                                    <h4>Chi tiết sản phẩm</h4>
+                                    <h2 [(ngModel)]="product.name" ngDefaultControl> {{product.name}} </h2>
+                                   
+                                    <div class="packages-price">
+                                        <h3>Đơn giá</h3>
+                                        <h3 class="dongia">
+
+                                            {{product.price | number: '3.0'}} đ
+                                            <!-- <del>$ 499.00</del> -->
+                                        </h3>
+                                    </div>
+                                    <div>
+                                        <p *ngIf="!isShow" [innerHTML]="product.description| formatContent :0 :200"> 
+                                            <!-- {{product.description | formatContent :0 :200}} -->
+                                           
+                                         </p>
+                                         <!-- <a (click)=" isShow=!isShow" style="cursor:pointer">xem thêm</a> -->
+                                        <span *ngIf="isShow" [innerHTML]="product.description">
+                                                
+                                                <!-- {{product.description}} -->
+                                            <br>
+                                               
+                                                <!-- {{product.idCategory}} -->
+                                        </span>
+                                        <a (click)=" isShow=!isShow" style="cursor:pointer">Xem thêm</a>
+                                            <input type="hidden" [(ngModel)]="product.idCategory">
+                                    </div>
+                                    <!-- (click)="addCart(product)" -->
+                                    <button (click)="addToCart(product)"  class=" btn-cart welcome-add-cart animated fadeInDown" >
+                                        <span class="lnr lnr-plus-circle"></span>
+                                      Thêm vào giỏ hàng
+                                    </button>
+                                    <!-- <button class="btn-cart welcome-add-cart welcome-more-info" onclick="window.location.href='#'">
+                                        more info
+                                    </button> -->
+                                    
+                                </div><!--/.welcome-hero-txt-->
+                            </div><!--/.single-welcome-hero-->
+                        </div><!--/.col-->
+                        <div class="col-sm-5">
+                            <div class="single-welcome-hero">
+                                <div class="welcome-hero-img">
+                                    <img src="../../../assets/Image/Products/{{product.image}}" style="height:350px;" >
+                                </div><!--/.welcome-hero-txt-->
+                            </div><!--/.single-welcome-hero-->
+                        </div><!--/.col-->
+                    </div><!--/.row-->
+                </div><!--/.welcome-hero-content-->
+            </div><!-- /.container-->
+        </div><!-- /.single-slide-item-->
+    </div><!-- /.item .active-->
+</div>
+<div class="container">
+    <div class="section-header">
+        <h2>Sản phẩm cùng loại</h2>
+    </div><!--/.section-header-->
+    <div class="new-arrivals-content">
+        <div class="row">
+            <div class="col-md-3 col-sm-4" *ngFor="let pr of datas ">
+                <a class="link"  >
+                    <div class="single-new-arrival">
+                        <div class="single-new-arrival-bg">
+                            <div>
+                            <a href="/detail/{{pr.id}}/{{pr.idCategory}}">
+                            <img src="../../../assets/Image/Products/{{pr.image}}" alt="new-arrivals images" style="border: none;height: 160px;">
+                            </a>
+                            </div>
+                            <div class="single-new-arrival-bg-overlay"></div>
+                            <!-- <div class="sale bg-1">
+                                <p>sale</p>
+                            </div> -->
+                            <div class="new-arrival-cart" (click)="addToCart(pr)" style="cursor: pointer;">
+                                <p>
+                                    <span class="lnr lnr-cart"></span>
+                                    <a ><i class="fas fa-shopping-cart" style="margin-top:12px;"></i> Thêm vào giỏ hàng</a>
+                                </p>
+                                <p class="arrival-review pull-right">
+                                    <span class="lnr lnr-heart"></span>
+                                    <span class="lnr lnr-frame-expand"></span>
+                                </p>
+                            </div>
+                        </div>
+                        <h4 class="name-pro"> <a href="/detail/{{pr.id}}/{{pr.idCategory}}">{{pr.name}}</a></h4>
+                        <p class="arrival-product-price">{{pr.price | number: '3.0'}} đ</p>
+                    </div>
+                </a>
+            </div>
+            <!-- <div class="col-md-3 col-sm-4">
+                <div class="single-new-arrival">
+                    <div class="single-new-arrival-bg">
+                        <img src="../../../assets/Image/collection/arrivals2.png" alt="new-arrivals images">
+                        <div class="single-new-arrival-bg-overlay"></div>
+                        <div class="sale bg-2">
+                            <p>sale</p>
+                        </div>
+                        <div class="new-arrival-cart">
+                            <p>
+                                <span class="lnr lnr-cart"></span>
+                                <a href="#">add <span>to </span> cart</a>
+                            </p>
+                            <p class="arrival-review pull-right">
+                                <span class="lnr lnr-heart"></span>
+                                <span class="lnr lnr-frame-expand"></span>
+                            </p>
+                        </div>
+                    </div>
+                    <h4><a href="#">single armchair</a></h4>
+                    <p class="arrival-product-price">$80.00</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-4">
+                <div class="single-new-arrival">
+                    <div class="single-new-arrival-bg">
+                        <img src="../../../assets/Image/collection/arrivals3.png" alt="new-arrivals images">
+                        <div class="single-new-arrival-bg-overlay"></div>
+                        <div class="new-arrival-cart">
+                            <p>
+                                <span class="lnr lnr-cart"></span>
+                                <a href="#">add <span>to </span> cart</a>
+                            </p>
+                            <p class="arrival-review pull-right">
+                                <span class="lnr lnr-heart"></span>
+                                <span class="lnr lnr-frame-expand"></span>
+                            </p>
+                        </div>
+                    </div>
+                    <h4><a href="#">wooden armchair</a></h4>
+                    <p class="arrival-product-price">$40.00</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-4">
+                <div class="single-new-arrival">
+                    <div class="single-new-arrival-bg">
+                        <img src="../../../assets/Image/collection/arrivals4.png" alt="new-arrivals images">
+                        <div class="single-new-arrival-bg-overlay"></div>
+                        <div class="sale bg-1">
+                            <p>sale</p>
+                        </div>
+                        <div class="new-arrival-cart">
+                            <p>
+                                <span class="lnr lnr-cart"></span>
+                                <a href="#">add <span>to </span> cart</a>
+                            </p>
+                            <p class="arrival-review pull-right">
+                                <span class="lnr lnr-heart"></span>
+                                <span class="lnr lnr-frame-expand"></span>
+                            </p>
+                        </div>
+                    </div>
+                    <h4><a href="#">stylish chair</a></h4>
+                    <p class="arrival-product-price">$100.00</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-4">
+                <div class="single-new-arrival">
+                    <div class="single-new-arrival-bg">
+                        <img src="../../../assets/Image/collection/arrivals5.png" alt="new-arrivals images">
+                        <div class="single-new-arrival-bg-overlay"></div>
+                        <div class="new-arrival-cart">
+                            <p>
+                                <span class="lnr lnr-cart"></span>
+                                <a href="#">add <span>to </span> cart</a>
+                            </p>
+                            <p class="arrival-review pull-right">
+                                <span class="lnr lnr-heart"></span>
+                                <span class="lnr lnr-frame-expand"></span>
+                            </p>
+                        </div>
+                    </div>
+                    <h4><a href="#">modern chair</a></h4>
+                    <p class="arrival-product-price">$120.00</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-4">
+                <div class="single-new-arrival">
+                    <div class="single-new-arrival-bg">
+                        <img src="../../../assets/Image/collection/arrivals6.png" alt="new-arrivals images">
+                        <div class="single-new-arrival-bg-overlay"></div>
+                        <div class="sale bg-1">
+                            <p>sale</p>
+                        </div>
+                        <div class="new-arrival-cart">
+                            <p>
+                                <span class="lnr lnr-cart"></span>
+                                <a href="#">add <span>to </span> cart</a>
+                            </p>
+                            <p class="arrival-review pull-right">
+                                <span class="lnr lnr-heart"></span>
+                                <span class="lnr lnr-frame-expand"></span>
+                            </p>
+                        </div>
+                    </div>
+                    <h4><a href="#">mapple wood dinning table</a></h4>
+                    <p class="arrival-product-price">$140.00</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-4">
+                <div class="single-new-arrival">
+                    <div class="single-new-arrival-bg">
+                        <img src=".../../../assets/Image/collection/arrivals7.png" alt="new-arrivals images">
+                        <div class="single-new-arrival-bg-overlay"></div>
+                        <div class="sale bg-2">
+                            <p>sale</p>
+                        </div>
+                        <div class="new-arrival-cart">
+                            <p>
+                                <span class="lnr lnr-cart"></span>
+                                <a href="#">add <span>to </span> cart</a>
+                            </p>
+                            <p class="arrival-review pull-right">
+                                <span class="lnr lnr-heart"></span>
+                                <span class="lnr lnr-frame-expand"></span>
+                            </p>
+                        </div>
+                    </div>
+                    <h4><a href="#">arm chair</a></h4>
+                    <p class="arrival-product-price">$90.00</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-4">
+                <div class="single-new-arrival">
+                    <div class="single-new-arrival-bg">
+                        <img src="../../../assets/Image/collection/arrivals8.png" alt="new-arrivals images">
+                        <div class="single-new-arrival-bg-overlay"></div>
+                        <div class="new-arrival-cart">
+                            <p>
+                                <span class="lnr lnr-cart"></span>
+                                <a href="#">add <span>to </span> cart</a>
+                            </p>
+                            <p class="arrival-review pull-right">
+                                <span class="lnr lnr-heart"></span>
+                                <span class="lnr lnr-frame-expand"></span>
+                            </p>
+                        </div>
+                    </div>
+                    <h4><a href="#">wooden bed</a></h4>
+                    <p class="arrival-product-price">$140.00</p>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+      $(window).load(function(){
+        	$(".welcome-hero-txt h4,.welcome-hero-txt h2,.welcome-hero-txt p").removeClass("animated fadeInUp").css({'opacity':'0'});
+            $(".welcome-hero-txt button").removeClass("animated fadeInDown").css({'opacity':'0'});
+        });
+
+        $(window).load(function(){
+        	$(".welcome-hero-txt h4,.welcome-hero-txt h2,.welcome-hero-txt p").addClass("animated fadeInUp").css({'opacity':'0'});
+            $(".welcome-hero-txt button").addClass("animated fadeInDown").css({'opacity':'0'});
+        });
+
+</script>

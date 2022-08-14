@@ -1,0 +1,121 @@
+<section id="subheader" data-speed="8" data-type="background">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Sản phẩm theo loại </h1>
+                <ul class="crumb">
+                    <li><a href="/">Trang chủ</a></li>
+                    <li class="sep">/</li>
+                    <li> Sản phẩm theo loại </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="bao">
+
+    <div class="container">
+       
+            <div class="col-md-9">
+                <div class="row">                  
+                    <div class="col-md-4" *ngFor="let pr of datas " >
+                        <a  >
+                        <div class="single-new-arrival">
+                            <div class="single-new-arrival-bg">
+                                <a href="/detail/{{pr.id}}/{{pr.idCategory}}">
+                                <img src="../../../assets/Image/Products/{{pr.image}}" alt="new-arrivals images" style="border: none;height: 160px;">
+                                </a>
+                                <div class="single-new-arrival-bg-overlay"></div>
+                                <!-- <div class="sale bg-1">
+                                    <p>sale</p>
+                                </div> -->
+                                <!-- (click)="addToCart(pr)" -->
+                                <div class="new-arrival-cart" (click)="addToCart(pr)" style="cursor: pointer;">
+                                    <!--   -->
+                                    <p>
+                                        <span class="lnr lnr-cart"></span>
+                                        <a  ><i class="fas fa-shopping-cart" style="margin-top:12px;"></i>Thêm vào giỏ hàng </a>
+                                    </p>
+                                    <p class="arrival-review pull-right">
+                                        <span class="lnr lnr-heart"></span>
+                                        <span class="lnr lnr-frame-expand"></span>
+                                    </p>
+                                </div>
+                            </div>
+                            <h4 class="name-pro"><a routerLink="/detail/{{pr.id}}/{{pr.idCategory}}">{{pr.name}}</a></h4>
+                            <p class="arrival-product-price">{{pr.price | number: '3.0'}} đ</p>
+                        </div>
+                        </a>
+                    </div>
+
+                   
+
+
+                </div>
+            </div>
+            <div id="sidebar" class="col-md-3">
+                <div class="widget widget_search">
+                  
+                    <input type='text' [(ngModel)]="keyword" name="keyword" id='search' class="form-control" placeholder="Tìm kiếm...">
+                    <button id="btn-search" type='submit' (click)="Search()"></button>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="widget widget_top_rated_product">
+                    <h4>Sản phẩm mới</h4>
+                    <ul>
+                        <li>
+                            <img src="./assets/images/shop/1.jpg" alt="">
+                            <div class="text">
+                                Ghế Sofa một người Woven
+                                    <div class="price">4,200,000 đ</div>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="./assets/images/shop/2.jpg" alt="">
+                            <div class="text">
+                                  Bàn Circular Cổ Điển
+                                    <div class="price">2,100,000 đ</div>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="./assets/images/shop/3.jpg" alt="">
+                            <div class="text">
+                                Ghế Vuông Woven 
+                                    <div class="price">1,800,000 đ</div>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="./assets/images/shop/4.jpg" alt="">
+                            <div class="text">
+                              Giường Ngủ Có Kệ Đỏ
+                                    <div class="price">8,100,000 đ</div>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="./assets/images/shop/5.jpg" alt="">
+                            <div class="text">
+                                Bàn Conor Mini
+                                    <div class="price">3,100,000 đ</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="widget widget_category">
+                    <h4>Loại sản phẩm</h4>
+                    <ul>
+                        <li *ngFor="let item of cate"><a href="/getCateProduct/{{item.id}}" >{{item.nameCate}}</a></li>
+                        <!-- <li><a href="#">Cabinet</a></li>
+                        <li><a href="#">Chair</a></li>
+                        <li><a href="#">Desk</a></li>
+                        <li><a href="#">Sofa</a></li>
+                        <li><a href="#">Misc</a></li> -->
+                    </ul>
+                </div>
+            </div>
+
+        
+    </div>
+
+</div>

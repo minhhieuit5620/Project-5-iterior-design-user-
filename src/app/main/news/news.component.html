@@ -1,0 +1,143 @@
+<!-- <div *ngFor="let item of datas" >
+    <p> {{item.nameNew}} </p>
+    <p> {{item.nameNew}} </p>
+    <p> {{item.nameNew}} </p>
+
+    <p> {{item.nameNew}} </p>
+    <p> {{item.nameNew}} </p>
+    v
+    <p> {{item.nameNew}} </p>
+    v
+
+</div> -->
+
+  <!-- subheader -->
+  <section id="subheader" data-speed="8" data-type="background">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>News</h1>
+                <ul class="crumb">
+                    <li><a href="index-2.html">Home</a></li>
+                    <li class="sep">/</li>
+                    <li>News</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- subheader close -->
+
+ <!-- content begin -->
+ <div id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="row">                  
+                    <!-- <div class="col-md-4" *ngFor="let pr of datas | paginate: { itemsPerPage: 10, currentPage: p } " > -->
+                        <div class="col-md-4" *ngFor="let pr of datas">
+                            <a href="/detailNews/{{pr.idNew}}" style="cursor: pointer;">
+                            <div class="single-new-arrival">
+                                <div class="single-new-arrival-bg">
+                                    <!-- <a href="/detailNews/{{pr.idNew}}" style="cursor: pointer;"> -->
+                                        <!-- <img src="/assets/img/Image/News/{{pr.avaterNew}}" style="width: 100px;" alt="">  -->
+                                    <img src="../../../assets/Image/News/{{pr.avaterNew}}" alt="new-arrivals images" style="border: none;height: 160px;">
+                                    <!-- </a> -->
+                                    <div class="single-new-arrival-bg-overlay"></div>
+                                
+                                    <div class="new-arrival-cart"   style="cursor: pointer;">
+                                        
+                                        <p>
+                                            <span class="lnr lnr-cart"></span>
+                                            <!-- <a  ><i class="fas fa-shopping-cart" style="margin-top:12px;"></i>Thêm vào giỏ hàng </a> -->
+                                        </p>
+                                        <p class="arrival-review pull-right">
+                                            <span class="lnr lnr-heart"></span>
+                                            <span class="lnr lnr-frame-expand"></span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <h4 class="name-pro" [innerHTML]="pr.nameNew" ></h4>
+                                <p class="arrival-product-price"> </p>
+                                <br>
+                                <br>
+                                <!-- <p class="arrival-product-price" [innerHTML]="pr.descriptionNew"> </p>
+                                <p>{{pr.idCategoryNew }}</p> -->
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+
+
+                </div>
+            </div>
+
+            <div id="sidebar" class="col-md-3">
+                <div class=" widget_search">
+                  
+                    <input type='text' [(ngModel)]="keyword" name="keyword" id='search' class="form-control" placeholder="Tìm kiếm...">
+                    <button id="btn-search" type='submit' (click)="Search()"></button>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class=" widget_top_rated_product">
+                    <h4 style="padding: 20px 0px;"> <strong>Tin tức mới</strong></h4>
+                    <ul>
+                        <li *ngFor="let item of datas3" style="text-decoration: none;list-style: none;">
+                            <a href="/detailNews/{{item.idNew}}" style="cursor: pointer;">
+                                <img src="../../../assets/Image/News/{{item.avaterNew}}" style="margin-top: 15px;" alt="">
+                                <div class="text">
+                                    <p [innerHTML]="item.nameNew"></p>
+                                        <!-- <div class="price">$420</div> -->
+                                </div>
+                            </a>
+                            <!-- <hr> -->
+                        </li>
+                        <!-- <li>
+                            <img src="./assets/images/shop/2.jpg" alt="">
+                            <div class="text">
+                                Classic Circular Table
+                                    <div class="price">$210</div>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="./assets/images/shop/3.jpg" alt="">
+                            <div class="text">
+                                Woven Square Chair
+                                    <div class="price">$180</div>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="./assets/images/shop/4.jpg" alt="">
+                            <div class="text">
+                                Multifunction Bed Red
+                                    <div class="price">$850</div>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="./assets/images/shop/5.jpg" alt="">
+                            <div class="text">
+                                Minimalist Corner Desk
+                                    <div class="price">$240</div>
+                            </div>
+                        </li> -->
+                    </ul>
+                </div>
+
+                <!-- <div class="widget widget_category">
+                    <h4>Loại sản phẩm</h4>
+                    <ul>
+                        <li *ngFor="let item of cate"><a routerLink="/getCateProduct/{{item.id}}" >{{item.nameCate}}</a></li>
+                       
+                    </ul>
+                </div> -->
+            </div>
+
+        </div>
+    </div>
+
+
+
+</div>
+

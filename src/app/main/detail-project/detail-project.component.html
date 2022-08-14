@@ -1,0 +1,80 @@
+
+   <section id="subheader" data-speed="8" data-type="background">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Chi tiết dự án </h1>
+                <ul class="crumb">
+                    <li><a href="index-2.html">Trang chủ</a></li>
+                    <li class="sep">/</li>
+                    <li>Chi tiết dự án</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="bao">
+<div class="container project-view">
+    
+	<div class="row">
+        <div class="col-md-8 project-images">
+            <img src="../../../assets/images/portfolio/view/p1_a.jpg" alt="" class="img-responsive">
+            <img src="../../../assets/images/portfolio/view/p1_b.jpg" alt="" class="img-responsive">
+            <img src="../../../assets/images/portfolio/view/p1_c.jpg" alt="" class="img-responsive">
+        </div>
+        <div class="col-md-4">
+            <div class="project-info">
+                <h2> {{project.nameProject}} </h2>
+
+                <div class="details">
+                    <div class="info-text">
+                        <span class="title">Thời gian </span>
+                        <span class="val"> {{project.dateStart|date: 'dd/MM/yyyy'}}-{{project.dateFinish|date: 'dd/MM/yyyy'}} </span>
+                    </div>
+
+                    <div class="info-text">
+                        <span class="title">Địa điểm</span>
+                        <span class="val">{{project.location}}</span>
+                    </div>
+
+                    <div class="info-text">
+                        <span class="title">Chi Phí</span>
+                        <span class="val"> {{project.priceProject| number: '3.0' }} VNĐ </span>
+                    </div>
+
+                    <div class="info-text">
+                        <span class="title">Khách hàng</span>
+                        <span class="val">{{project.nameCustomer}}</span>
+                    </div>
+
+                    <div class="info-text">
+                        <span class="title">Loại</span>
+                        <span class="val">{{cateProjects.nameCateProject}}</span>
+                    </div>
+                </div>
+                <!-- <p name="Description"  [(ngModel)]="project.descriptionProject" ></p> -->
+                <!-- <ck-content></ck-content> -->
+                <!-- {{project.descriptionProject}} -->
+                <p class="test" [innerHTML]="project.descriptionProject">  </p>
+
+                <p>
+                    </p><h4>Cách chúng tôi làm</h4>
+                  
+                    <!-- {{cateProjects.descriptionCateProject}} -->
+                  
+                  
+                <p [innerHTML]=cateProjects.descriptionCateProject></p>
+                <p></p>
+                        
+                        
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- section begin -->
+<section id="call-to-action" class="call-to-action bg-color dark text-center" data-speed="5" data-type="background">
+    <a href="/contact" class="btn btn-line-black btn-big">Liên hệ ngay</a>
+</section>
+<!-- logo carousel section close -->
+</div>
